@@ -1,0 +1,248 @@
+import { Calendar, ChevronRight, Play, FlaskConical, Microscope, Activity } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
+
+const STATS = [
+  { value: "215+", label: "Certified Tests" },
+  { value: "24+", label: "Years of Experience" },
+  { value: "98%", label: "Accuracy Rate" },
+];
+
+const TRUST_BADGES = [
+  { icon: FlaskConical, label: "ISO Certified" },
+  { icon: Microscope, label: "Advanced Lab" },
+  { icon: Activity, label: "24/7 Reports" },
+];
+
+export function HeroSection() {
+  return (
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
+      {/* Background layers */}
+      <div className="absolute inset-0 z-0">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#0b2e29] to-[#062420]" />
+
+        {/* Teal accent blobs */}
+        <div className="absolute top-0 right-0 w-[60%] h-[70%] bg-brand-primary/10 rounded-full blur-[120px] -translate-y-1/4 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[40%] h-[50%] bg-brand-primary/8 rounded-full blur-[100px] translate-y-1/4 -translate-x-1/4" />
+
+        {/* Grid overlay */}
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0,176,155,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,176,155,0.4) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        {/* Decorative circles */}
+        <div className="absolute top-1/4 right-[5%] w-80 h-80 rounded-full border border-brand-primary/15 animate-[spin_20s_linear_infinite]" />
+        <div className="absolute top-1/4 right-[5%] w-56 h-56 rounded-full border border-brand-primary/10 m-auto top-1/2 -translate-y-1/2 animate-[spin_15s_linear_infinite_reverse]" style={{ top: "calc(25% + 48px)", right: "calc(5% + 48px)" }} />
+      </div>
+
+      {/* Main content */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-16">
+          <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+            {/* Left — Text content */}
+            <div className="flex flex-col gap-6">
+              {/* Badge */}
+              <div className="animate-fade-up opacity-0-init">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-primary text-xs font-semibold uppercase tracking-widest">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
+                  Purpose Of Medical Lab
+                </span>
+              </div>
+
+              {/* Heading */}
+              <div
+                className="animate-fade-up"
+                style={{ animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards" }}
+              >
+                <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
+                  Medical{" "}
+                  <span className="text-brand-primary relative">
+                    Quality
+                    <svg
+                      className="absolute -bottom-1 left-0 w-full"
+                      viewBox="0 0 200 8"
+                      fill="none"
+                      preserveAspectRatio="none"
+                    >
+                      <path
+                        d="M0 6 Q50 1 100 5 Q150 9 200 4"
+                        stroke="#00b09b"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        fill="none"
+                        opacity="0.6"
+                      />
+                    </svg>
+                  </span>{" "}
+                  System{" "}
+                  <br className="hidden sm:block" />
+                  That Produce{" "}
+                  <span className="text-brand-secondary">Solid Data</span>
+                </h1>
+              </div>
+
+              {/* Description */}
+              <p
+                className="text-white/65 text-base sm:text-lg leading-relaxed max-w-xl animate-fade-up"
+                style={{ animationDelay: "0.2s", opacity: 0, animationFillMode: "forwards" }}
+              >
+                Experience a comprehensive and modern diagnostic assessment of your body. By having a careful
+                understanding of your overall health, we ensure the highest accuracy and reliability in every test.
+              </p>
+
+              {/* CTA Buttons */}
+              <div
+                className="flex flex-wrap items-center gap-4 animate-fade-up"
+                style={{ animationDelay: "0.3s", opacity: 0, animationFillMode: "forwards" }}
+              >
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group gap-2.5 text-sm font-semibold tracking-wide p-2"
+                >
+                  <Calendar className="w-4 h-4" />
+                  Make An Appointment
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Button>
+
+                <button className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
+                  <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-brand-primary/20 group-hover:border-brand-primary/40 transition-all">
+                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                  </div>
+                  <span className="text-sm font-medium">Watch Video</span>
+                </button>
+              </div>
+
+              {/* Trust badges */}
+              <div
+                className="flex flex-wrap gap-4 animate-fade-up"
+                style={{ animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
+              >
+                {TRUST_BADGES.map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-brand-primary/30 transition-colors"
+                  >
+                    <Icon className="w-4 h-4 text-brand-primary" />
+                    <span className="text-white/70 text-xs font-medium">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — Visual card */}
+            <div
+              className="relative flex items-center justify-center animate-fade-up"
+              style={{ animationDelay: "0.25s", opacity: 0, animationFillMode: "forwards" }}
+            >
+              {/* Main card */}
+              <div className="relative w-full max-w-sm xl:max-w-md">
+                {/* Glow */}
+                <div className="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-2xl scale-105" />
+
+                {/* Card */}
+                <div className="relative rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/15 backdrop-blur-sm overflow-hidden p-8 flex flex-col gap-6">
+                  {/* Top illustration area */}
+                  <div className="relative h-48 rounded-2xl bg-gradient-to-br from-brand-primary/20 to-brand-secondary/10 border border-brand-primary/20 flex items-center justify-center overflow-hidden">
+                    {/* Decorative rings */}
+                    <div className="absolute w-40 h-40 rounded-full border border-brand-primary/20" />
+                    <div className="absolute w-28 h-28 rounded-full border border-brand-primary/30" />
+                    {/* Center icon */}
+                    <div className="relative z-10 w-20 h-20 rounded-full bg-brand-primary/20 border-2 border-brand-primary/40 flex items-center justify-center">
+                      <Microscope className="w-9 h-9 text-brand-primary" />
+                    </div>
+                    {/* Floating dots */}
+                    <div className="absolute top-4 right-6 w-3 h-3 rounded-full bg-brand-primary/60 animate-bounce" style={{ animationDelay: "0.2s" }} />
+                    <div className="absolute bottom-5 left-8 w-2 h-2 rounded-full bg-brand-secondary/70 animate-bounce" style={{ animationDelay: "0.5s" }} />
+                    <div className="absolute top-6 left-6 w-2.5 h-2.5 rounded-full bg-white/30 animate-bounce" style={{ animationDelay: "0.8s" }} />
+                  </div>
+
+                  {/* Stats row */}
+                  <div className="grid grid-cols-3 gap-4">
+                    {STATS.map(({ value, label }) => (
+                      <div key={label} className="flex flex-col items-center text-center gap-1">
+                        <span className="text-2xl font-extrabold text-brand-primary leading-none">
+                          {value}
+                        </span>
+                        <span className="text-white/50 text-xs leading-tight">{label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Bottom card action */}
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-brand-primary/10 border border-brand-primary/20">
+                    <div className="w-9 h-9 rounded-full bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
+                      <Activity className="w-4 h-4 text-brand-primary" />
+                    </div>
+                    <div>
+                      <p className="text-white text-xs font-semibold">Real-Time Results</p>
+                      <p className="text-white/50 text-xs">Get your reports digitally</p>
+                    </div>
+                    <div className="ml-auto w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating stat pill — top left */}
+              <div
+                className={cn(
+                  "absolute -left-4 top-10 xl:-left-10",
+                  "hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl",
+                  "bg-brand-navy/90 border border-brand-primary/30 backdrop-blur-sm shadow-xl"
+                )}
+              >
+                <FlaskConical className="w-4 h-4 text-brand-primary" />
+                <div>
+                  <p className="text-white text-xs font-semibold leading-none">100+ Tests</p>
+                  <p className="text-white/50 text-[10px]">Available Daily</p>
+                </div>
+              </div>
+
+              {/* Floating stat pill — bottom right */}
+              <div
+                className={cn(
+                  "absolute -right-4 bottom-10 xl:-right-10",
+                  "hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl",
+                  "bg-brand-navy/90 border border-brand-primary/30 backdrop-blur-sm shadow-xl"
+                )}
+              >
+                <div className="flex -space-x-1.5">
+                  {["bg-teal-400", "bg-emerald-400", "bg-cyan-400"].map((c, i) => (
+                    <div key={i} className={`w-6 h-6 rounded-full border-2 border-brand-navy ${c}`} />
+                  ))}
+                </div>
+                <div>
+                  <p className="text-white text-xs font-semibold leading-none">Expert Team</p>
+                  <p className="text-white/50 text-[10px]">50+ Specialists</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom wave / divider */}
+      <div className="relative z-10">
+        <svg
+          viewBox="0 0 1440 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full block"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 30 Q180 0 360 30 Q540 60 720 30 Q900 0 1080 30 Q1260 60 1440 30 L1440 60 L0 60 Z"
+            fill="white"
+            fillOpacity="0.04"
+          />
+        </svg>
+      </div>
+    </section>
+  );
+}
