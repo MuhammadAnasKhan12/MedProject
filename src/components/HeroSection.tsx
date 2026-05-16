@@ -19,14 +19,9 @@ export function HeroSection() {
     <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 z-0">
-        {/* Base gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#0b2e29] to-[#062420]" />
-
-        {/* Teal accent blobs */}
         <div className="absolute top-0 right-0 w-[60%] h-[70%] bg-brand-primary/10 rounded-full blur-[120px] -translate-y-1/4 translate-x-1/4" />
         <div className="absolute bottom-0 left-0 w-[40%] h-[50%] bg-brand-primary/8 rounded-full blur-[100px] translate-y-1/4 -translate-x-1/4" />
-
-        {/* Grid overlay */}
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -35,10 +30,7 @@ export function HeroSection() {
             backgroundSize: "60px 60px",
           }}
         />
-
-        {/* Decorative circles */}
         <div className="absolute top-1/4 right-[5%] w-80 h-80 rounded-full border border-brand-primary/15 animate-[spin_20s_linear_infinite]" />
-        <div className="absolute top-1/4 right-[5%] w-56 h-56 rounded-full border border-brand-primary/10 m-auto top-1/2 -translate-y-1/2 animate-[spin_15s_linear_infinite_reverse]" style={{ top: "calc(25% + 48px)", right: "calc(5% + 48px)" }} />
       </div>
 
       {/* Main content */}
@@ -47,7 +39,6 @@ export function HeroSection() {
           <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
             {/* Left — Text content */}
             <div className="flex flex-col gap-6">
-              {/* Badge */}
               <div className="animate-fade-up opacity-0-init">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-primary text-xs font-semibold uppercase tracking-widest">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
@@ -55,7 +46,6 @@ export function HeroSection() {
                 </span>
               </div>
 
-              {/* Heading */}
               <div
                 className="animate-fade-up"
                 style={{ animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards" }}
@@ -87,7 +77,6 @@ export function HeroSection() {
                 </h1>
               </div>
 
-              {/* Description */}
               <p
                 className="text-white/65 text-base sm:text-lg leading-relaxed max-w-xl animate-fade-up"
                 style={{ animationDelay: "0.2s", opacity: 0, animationFillMode: "forwards" }}
@@ -96,7 +85,6 @@ export function HeroSection() {
                 understanding of your overall health, we ensure the highest accuracy and reliability in every test.
               </p>
 
-              {/* CTA Buttons */}
               <div
                 className="flex flex-wrap items-center gap-4 animate-fade-up"
                 style={{ animationDelay: "0.3s", opacity: 0, animationFillMode: "forwards" }}
@@ -119,7 +107,6 @@ export function HeroSection() {
                 </button>
               </div>
 
-              {/* Trust badges */}
               <div
                 className="flex flex-wrap gap-4 animate-fade-up"
                 style={{ animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
@@ -136,60 +123,40 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Right — Visual card */}
+            {/* Right — Real photo with overlaid stats */}
             <div
               className="relative flex items-center justify-center animate-fade-up"
               style={{ animationDelay: "0.25s", opacity: 0, animationFillMode: "forwards" }}
             >
-              {/* Main card */}
               <div className="relative w-full max-w-sm xl:max-w-md">
                 {/* Glow */}
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-2xl scale-105" />
 
-                {/* Card */}
-                <div className="relative rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/15 backdrop-blur-sm overflow-hidden p-8 flex flex-col gap-6">
-                  {/* Top illustration area */}
-                  <div className="relative h-48 rounded-2xl bg-gradient-to-br from-brand-primary/20 to-brand-secondary/10 border border-brand-primary/20 flex items-center justify-center overflow-hidden">
-                    {/* Decorative rings */}
-                    <div className="absolute w-40 h-40 rounded-full border border-brand-primary/20" />
-                    <div className="absolute w-28 h-28 rounded-full border border-brand-primary/30" />
-                    {/* Center icon */}
-                    <div className="relative z-10 w-20 h-20 rounded-full bg-brand-primary/20 border-2 border-brand-primary/40 flex items-center justify-center">
-                      <Microscope className="w-9 h-9 text-brand-primary" />
-                    </div>
-                    {/* Floating dots */}
-                    <div className="absolute top-4 right-6 w-3 h-3 rounded-full bg-brand-primary/60 animate-bounce" style={{ animationDelay: "0.2s" }} />
-                    <div className="absolute bottom-5 left-8 w-2 h-2 rounded-full bg-brand-secondary/70 animate-bounce" style={{ animationDelay: "0.5s" }} />
-                    <div className="absolute top-6 left-6 w-2.5 h-2.5 rounded-full bg-white/30 animate-bounce" style={{ animationDelay: "0.8s" }} />
-                  </div>
+                {/* Photo card */}
+                <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl">
+                  <img
+                    src="/images/lab3.jpeg"
+                    alt="Lab scientists at work"
+                    className="w-full h-80 xl:h-96 object-cover"
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent" />
 
-                  {/* Stats row */}
-                  <div className="grid grid-cols-3 gap-4">
-                    {STATS.map(({ value, label }) => (
-                      <div key={label} className="flex flex-col items-center text-center gap-1">
-                        <span className="text-2xl font-extrabold text-brand-primary leading-none">
-                          {value}
-                        </span>
-                        <span className="text-white/50 text-xs leading-tight">{label}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Bottom card action */}
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-brand-primary/10 border border-brand-primary/20">
-                    <div className="w-9 h-9 rounded-full bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
-                      <Activity className="w-4 h-4 text-brand-primary" />
+                  {/* Stats row at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <div className="grid grid-cols-3 gap-3">
+                      {STATS.map(({ value, label }) => (
+                        <div key={label} className="flex flex-col items-center text-center gap-0.5 bg-black/30 backdrop-blur-sm rounded-xl p-3">
+                          <span className="text-xl font-extrabold text-brand-primary leading-none">{value}</span>
+                          <span className="text-white/60 text-[10px] leading-tight">{label}</span>
+                        </div>
+                      ))}
                     </div>
-                    <div>
-                      <p className="text-white text-xs font-semibold">Real-Time Results</p>
-                      <p className="text-white/50 text-xs">Get your reports digitally</p>
-                    </div>
-                    <div className="ml-auto w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                   </div>
                 </div>
               </div>
 
-              {/* Floating stat pill — top left */}
+              {/* Floating pill — top left */}
               <div
                 className={cn(
                   "absolute -left-4 top-10 xl:-left-10",
@@ -204,7 +171,7 @@ export function HeroSection() {
                 </div>
               </div>
 
-              {/* Floating stat pill — bottom right */}
+              {/* Floating pill — bottom right */}
               <div
                 className={cn(
                   "absolute -right-4 bottom-10 xl:-right-10",
@@ -227,7 +194,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom wave / divider */}
+      {/* Bottom wave */}
       <div className="relative z-10">
         <svg
           viewBox="0 0 1440 60"

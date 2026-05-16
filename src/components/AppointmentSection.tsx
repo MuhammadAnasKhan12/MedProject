@@ -1,10 +1,76 @@
-import { useState } from "react";
-import { Phone, Calendar, Microscope } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { useState, useRef, useEffect } from "react";
+import { Phone, Calendar, ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const inputClass =
-  "w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary transition-all";
+  "w-full px-4 py-3 rounded-xl border border-white/30 bg-transparent text-white text-sm placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/60 transition-all";
+
+const TESTS = [
+  { value: "cbc", label: "Complete Blood Count" },
+  { value: "urinalysis", label: "Urinalysis" },
+  { value: "lipid", label: "Lipid Profile" },
+  { value: "glucose", label: "Glucose Tolerance Test" },
+  { value: "biochemistry", label: "Biochemistry Test" },
+];
+
+function CustomSelect({
+  value,
+  onChange,
+  placeholder,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  placeholder: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  const selected = TESTS.find((t) => t.value === value);
+
+  return (
+    <div ref={ref} className="relative w-full">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className={cn(
+          inputClass,
+          "flex items-center justify-between text-left",
+          !selected && "text-white/60"
+        )}
+      >
+        <span>{selected ? selected.label : placeholder}</span>
+        <ChevronDown
+          className={cn("w-4 h-4 flex-shrink-0 transition-transform duration-200", open && "rotate-180")}
+        />
+      </button>
+
+      {open && (
+        <ul className="absolute z-50 top-full mt-2 left-0 right-0 rounded-xl border border-white/20 bg-white shadow-xl overflow-hidden">
+          {TESTS.map((t) => (
+            <li key={t.value}>
+              <button
+                type="button"
+                onClick={() => { onChange(t.value); setOpen(false); }}
+                className="w-full flex items-center justify-between px-4 py-3 text-sm text-left hover:bg-green-100 transition-colors text-brand-primary"
+              >
+                {t.label}
+                {value === t.value && <Check className="w-4 h-4 flex-shrink-0" />}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 export function AppointmentSection() {
   const [form, setForm] = useState({
@@ -15,27 +81,28 @@ export function AppointmentSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="bg-brand-primary">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 min-h-[560px]">
+
           {/* Left: form */}
-          <div>
-            <span className="text-brand-primary text-sm font-semibold uppercase tracking-widest">
+          <div className="px-6 sm:px-10 lg:px-16 py-12 lg:py-20 flex flex-col justify-center">
+            <span className="text-white/70 text-xs font-semibold uppercase tracking-widest mb-2">
               Book Now
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3 mb-8 leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-6 leading-tight">
               Are You Ready? Book
               <br />
               Appointment Now!
             </h2>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <div className="grid sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <input
                   type="text"
                   placeholder="Full Name*"
@@ -53,7 +120,8 @@ export function AppointmentSection() {
                   required
                 />
               </div>
-              <div className="grid sm:grid-cols-2 gap-4">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <input
                   type="tel"
                   placeholder="Phone number"
@@ -61,20 +129,13 @@ export function AppointmentSection() {
                   onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
                   className={inputClass}
                 />
-                <select
+                <CustomSelect
                   value={form.test}
-                  onChange={(e) => setForm((f) => ({ ...f, test: e.target.value }))}
-                  className={cn(inputClass, form.test === "" ? "text-gray-400" : "text-gray-800")}
-                >
-                  <option value="" disabled>
-                    Biochemistry test
-                  </option>
-                  <option value="cbc">Complete Blood Count</option>
-                  <option value="urinalysis">Urinalysis</option>
-                  <option value="lipid">Lipid Profile</option>
-                  <option value="glucose">Glucose Tolerance Test</option>
-                </select>
+                  onChange={(v) => setForm((f) => ({ ...f, test: v }))}
+                  placeholder="Biochemistry test"
+                />
               </div>
+
               <textarea
                 placeholder="Message"
                 value={form.message}
@@ -82,48 +143,46 @@ export function AppointmentSection() {
                 rows={4}
                 className={cn(inputClass, "resize-none")}
               />
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-2">
-                <Button type="submit" variant="primary" size="lg" className="gap-2">
-                  <Calendar className="w-4 h-4" />
-                  Book an Appointment
-                </Button>
-                <a
-                  href="tel:+18905333783"
-                  className="flex items-center gap-2 text-gray-500 hover:text-brand-primary transition-colors text-sm"
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 mt-1">
+                <button
+                  type="submit"
+                  className="flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-white text-brand-primary font-bold text-sm hover:bg-white/90 transition-colors whitespace-nowrap w-full sm:w-auto"
                 >
-                  <Phone className="w-4 h-4 text-brand-primary flex-shrink-0" />
-                  Get Your Quote or Call: (890) 533-378-386
+                  <Calendar className="w-4 h-4 flex-shrink-0" />
+                  Book an Appointment
+                </button>
+                <a
+                  href="tel:+0805332213184"
+                  className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <span>Get Your Quote or Call: (080) 5332-213-184</span>
                 </a>
               </div>
             </form>
           </div>
 
-          {/* Right: visual */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            <div className="relative w-full max-w-sm">
-              <div className="absolute inset-0 bg-brand-primary/15 rounded-3xl blur-2xl scale-110" />
-              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#f0fdf9] via-brand-primary/10 to-brand-primary/25 aspect-[3/4] flex flex-col items-center justify-center gap-6 p-8">
-                <div className="w-28 h-28 rounded-full bg-brand-primary/20 border-4 border-brand-primary/30 flex items-center justify-center">
-                  <Microscope className="w-14 h-14 text-brand-primary" />
-                </div>
-                <div className="flex flex-col gap-3 w-full">
-                  {["Complete Blood Count", "Lipid Profile", "Urinalysis"].map((test) => (
-                    <div
-                      key={test}
-                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/80 backdrop-blur-sm shadow-sm"
-                    >
-                      <div className="w-2 h-2 rounded-full bg-brand-primary flex-shrink-0" />
-                      <span className="text-gray-700 text-sm font-medium">{test}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="bg-brand-primary rounded-xl px-6 py-3 text-center w-full">
-                  <p className="text-white font-semibold text-sm">Expert Care Awaits</p>
-                  <p className="text-white/70 text-xs">Book your test today</p>
-                </div>
-              </div>
-            </div>
+          {/* Right: doctor photo — desktop */}
+          <div className="relative hidden lg:block">
+            <img
+              src="/images/doctor2.jpeg"
+              alt="Medical professional"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-brand-primary/40" />
           </div>
+
+          {/* Mobile: shorter image below form */}
+          <div className="relative block lg:hidden h-56 sm:h-72">
+            <img
+              src="/images/doctor2.jpeg"
+              alt="Medical professional"
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-brand-primary/40" />
+          </div>
+
         </div>
       </div>
     </section>

@@ -31,20 +31,47 @@ export function ExperienceSection() {
             </Button>
           </div>
 
-          {/* Right: stat cards */}
-          <div className="grid grid-cols-2 gap-5">
-            {STATS.map(({ value, label, color }, i) => (
-              <div
-                key={label}
-                className={cn(
-                  "flex flex-col gap-2 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-primary/20 transition-all",
-                  i === 2 ? "col-span-2 sm:col-span-1" : ""
-                )}
-              >
-                <span className={`text-5xl font-black leading-none ${color}`}>{value}</span>
-                <span className="text-gray-500 text-sm font-medium mt-1">{label}</span>
+          {/* Right: doctor photo with stat cards overlaid */}
+          <div className="relative">
+            {/* Stat cards grid — visible on mobile */}
+            <div className="grid grid-cols-2 gap-4 lg:hidden">
+              {STATS.map(({ value, label, color }, i) => (
+                <div
+                  key={label}
+                  className={cn(
+                    "flex flex-col gap-2 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm",
+                    i === 2 ? "col-span-2 sm:col-span-1" : ""
+                  )}
+                >
+                  <span className={`text-4xl font-black leading-none ${color}`}>{value}</span>
+                  <span className="text-gray-500 text-sm font-medium mt-1">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Photo with overlaid stats — desktop */}
+            <div className="hidden lg:block relative rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src="/images/doctor1.jpeg"
+                alt="Medical professional"
+                className="w-full h-[420px] object-cover object-top"
+              />
+              {/* Dark gradient at bottom */}
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent" />
+
+              {/* Stat pills overlaid */}
+              <div className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-3">
+                {STATS.map(({ value, label }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col items-center text-center bg-black/40 backdrop-blur-sm rounded-2xl px-3 py-4 border border-white/10"
+                  >
+                    <span className="text-2xl font-black text-brand-primary leading-none">{value}</span>
+                    <span className="text-white/70 text-[11px] mt-1 leading-tight">{label}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

@@ -20,21 +20,22 @@ export function ClinicalTrialsSection() {
 
         {/* Video card */}
         <div className="relative rounded-2xl overflow-hidden aspect-video max-w-4xl mx-auto mb-16 group cursor-pointer">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-[#062420]/80 to-brand-navy/90" />
-          {/* Decorative grid overlay */}
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(0,176,155,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(0,176,155,0.4) 1px, transparent 1px)",
-              backgroundSize: "48px 48px",
-            }}
+          {/* Real background image */}
+          <img
+            src="/images/lab2.jpeg"
+            alt="Lab scientist"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-brand-navy/60" />
+
+          {/* Play button */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-white/20 border-2 border-white/40 flex items-center justify-center group-hover:bg-brand-primary/50 group-hover:border-brand-primary transition-all duration-300 group-hover:scale-110">
+            <div className="w-20 h-20 rounded-full bg-white/20 border-2 border-white/40 flex items-center justify-center group-hover:bg-brand-primary/60 group-hover:border-brand-primary transition-all duration-300 group-hover:scale-110">
               <Play className="w-8 h-8 text-white fill-white ml-1" />
             </div>
           </div>
+
           <div className="absolute bottom-6 left-6">
             <p className="text-white font-semibold text-lg">Clinical Trials Overview</p>
             <p className="text-white/60 text-sm">Watch our latest research video</p>

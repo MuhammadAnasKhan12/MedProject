@@ -12,28 +12,15 @@ export function CoreServicesSection() {
     <section className="py-16 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: lab visual */}
-          <div className="relative rounded-3xl overflow-hidden aspect-[4/3] order-last lg:order-first">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#041f1c] via-brand-dark to-brand-primary/30" />
-            {/* Decorative rings */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full border border-brand-primary/15 animate-[spin_20s_linear_infinite]" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 rounded-full border border-brand-primary/10 animate-[spin_15s_linear_infinite_reverse]" />
-            {/* Center icon cluster */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-5">
-              <div className="w-24 h-24 rounded-full bg-brand-primary/20 border-2 border-brand-primary/40 flex items-center justify-center">
-                <Microscope className="w-12 h-12 text-brand-primary" />
-              </div>
-              <div className="flex gap-5">
-                {[FlaskConical, Activity].map((Icon, i) => (
-                  <div
-                    key={i}
-                    className="w-14 h-14 rounded-full bg-white/10 border border-brand-primary/30 flex items-center justify-center"
-                  >
-                    <Icon className="w-7 h-7 text-brand-primary/70" />
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Left: real lab photo */}
+          <div className="relative rounded-3xl overflow-hidden aspect-[4/3] order-last lg:order-first shadow-xl">
+            <img
+              src="/images/lab1.jpeg"
+              alt="Scientist working in lab"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Teal tint overlay at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-brand-primary/30 to-transparent" />
           </div>
 
           {/* Right: services list */}
