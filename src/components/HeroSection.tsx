@@ -3,15 +3,15 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const STATS = [
-  { value: "215+", label: "Certified Tests" },
-  { value: "24+", label: "Years of Experience" },
-  { value: "98%", label: "Accuracy Rate" },
+  { value: "18+", label: "Years of Experience" },
+  { value: "500+", label: "Clients Served" },
+  { value: "100%", label: "Quality Commitment" },
 ];
 
 const TRUST_BADGES = [
-  { icon: FlaskConical, label: "ISO Certified" },
-  { icon: Microscope, label: "Advanced Lab" },
-  { icon: Activity, label: "24/7 Reports" },
+  { icon: FlaskConical, label: "GCP Certified" },
+  { icon: Microscope, label: "Clinical Experts" },
+  { icon: Activity, label: "Quality Assured" },
 ];
 
 export function HeroSection() {
@@ -42,7 +42,7 @@ export function HeroSection() {
               <div className="animate-fade-up opacity-0-init">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-primary text-xs font-semibold uppercase tracking-widest">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
-                  Purpose Of Medical Lab
+                  Health Research Consulting
                 </span>
               </div>
 
@@ -51,9 +51,9 @@ export function HeroSection() {
                 style={{ animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards" }}
               >
                 <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
-                  Medical{" "}
+                  Clinical{" "}
                   <span className="text-brand-primary relative">
-                    Quality
+                    Research
                     <svg
                       className="absolute -bottom-1 left-0 w-full"
                       viewBox="0 0 200 8"
@@ -70,10 +70,10 @@ export function HeroSection() {
                       />
                     </svg>
                   </span>{" "}
-                  System{" "}
+                  Services{" "}
                   <br className="hidden sm:block" />
-                  That Produce{" "}
-                  <span className="text-brand-secondary">Solid Data</span>
+                  Committed To{" "}
+                  <span className="text-brand-secondary">Quality</span>
                 </h1>
               </div>
 
@@ -81,8 +81,7 @@ export function HeroSection() {
                 className="text-white/65 text-base sm:text-lg leading-relaxed max-w-xl animate-fade-up"
                 style={{ animationDelay: "0.2s", opacity: 0, animationFillMode: "forwards" }}
               >
-                Experience a comprehensive and modern diagnostic assessment of your body. By having a careful
-                understanding of your overall health, we ensure the highest accuracy and reliability in every test.
+                Ceonocra is a health research consulting group providing clinical trials management, training support, and quality assurance to research sites, government agencies, pharmaceutical companies, and study participants.
               </p>
 
               <div
@@ -95,7 +94,7 @@ export function HeroSection() {
                   className="group gap-2.5 text-sm font-semibold tracking-wide p-2"
                 >
                   <Calendar className="w-4 h-4" />
-                  Make An Appointment
+                  Get In Touch
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Button>
 
@@ -166,8 +165,8 @@ export function HeroSection() {
               >
                 <FlaskConical className="w-4 h-4 text-brand-primary" />
                 <div>
-                  <p className="text-white text-xs font-semibold leading-none">100+ Tests</p>
-                  <p className="text-white/50 text-[10px]">Available Daily</p>
+                  <p className="text-white text-xs font-semibold leading-none">6 Training Programs</p>
+                  <p className="text-white/50 text-[10px]">ICH GCP Certified</p>
                 </div>
               </div>
 
@@ -185,8 +184,8 @@ export function HeroSection() {
                   ))}
                 </div>
                 <div>
-                  <p className="text-white text-xs font-semibold leading-none">Expert Team</p>
-                  <p className="text-white/50 text-[10px]">50+ Specialists</p>
+                  <p className="text-white text-xs font-semibold leading-none">Expert Consultants</p>
+                  <p className="text-white/50 text-[10px]">18+ Yrs Experience</p>
                 </div>
               </div>
             </div>

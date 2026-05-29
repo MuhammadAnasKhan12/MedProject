@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/Button";
 
@@ -15,7 +15,7 @@ export function Footer() {
             <Logo variant="dark" className="w-44" showSubtitle />
             <h3 className="text-xl font-bold text-white">Have A Question?</h3>
             <p className="text-white/55 text-sm leading-relaxed">
-              We understand that every patient is unique. Contact us for personalized health research solutions tailored to your needs.
+              Ceonocra Health Research Solutions — providing clinical trials management, QA audits, and training support with over 18 years of experience. Contact us for solutions tailored to your needs.
             </p>
             <Button
               variant="outline"
@@ -33,19 +33,10 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" />
                 <span className="text-white/55 text-sm leading-relaxed">
-                  123 Research Blvd, Medical District,
+                  PO. Box 4224,
                   <br />
-                  New York, NY 10001
+                  Atlanta, GA 30311
                 </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-brand-primary flex-shrink-0" />
-                <a
-                  href="tel:+18905333783"
-                  className="text-white/55 text-sm hover:text-brand-primary transition-colors"
-                >
-                  (890) 533-378-386
-                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-brand-primary flex-shrink-0" />
@@ -99,7 +90,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/35 text-sm">© 2025 Ceonocra. All rights reserved.</p>
+          <p className="text-white/35 text-sm">© 2026 Ceonocra Health Research Solutions. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-white/35">
             <a href="#" className="hover:text-brand-primary transition-colors">
               Privacy Policy

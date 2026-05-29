@@ -1,10 +1,10 @@
-import { FlaskConical, Microscope, Award } from "lucide-react";
+import { FlaskConical, ShieldCheck, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const HIGHLIGHTS = [
-  { icon: FlaskConical, label: "Chemical Research" },
-  { icon: Microscope, label: "Advanced Microscopy" },
-  { icon: Award, label: "ISO Certified" },
+  { icon: FlaskConical, label: "Clinical Trials Management" },
+  { icon: ShieldCheck, label: "Quality Assurance" },
+  { icon: BookOpen, label: "Research Training" },
 ];
 
 export function WhatWeDoSection() {
@@ -22,7 +22,7 @@ export function WhatWeDoSection() {
                 What We Do?
               </h2>
               <p className="text-white/80 text-sm leading-relaxed">
-                Providing advanced medical diagnostic solutions and comprehensive clinical research services for better health outcomes.
+                We provide clinical trials management, quality assurance audits, training support, and site set-up services — tailored to the needs of research sites, government agencies, pharma companies, and study participants.
               </p>
               <Button
                 variant="outline"
@@ -38,7 +38,7 @@ export function WhatWeDoSection() {
           {/* Right: description + highlights */}
           <div className="flex flex-col gap-8">
             <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              The Med.la is a full laboratory in Clinical Research — a centralized facility for conducting various types of diagnostic tests and studies in the field of medicine. By having a careful understanding of the patient's condition, clinicians are able to access standardized, high quality testing services and information that are critical for accurate diagnosis and effective treatment of diseases.
+              Ceonocra Health Research Solutions is a consulting group that provides clinical trials management and training support to medical and investigator research sites, government agencies, pharmaceutical and biotechnology companies, device companies, and potential study participants. With over 18 years of clinical research experience, our commitment is to deliver quality service — regardless of the scope or complexity of your clinical trials' needs.
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
               {HIGHLIGHTS.map(({ icon: Icon, label }) => (

@@ -6,11 +6,11 @@ const inputClass =
   "w-full px-4 py-3 rounded-xl border border-white/30 bg-transparent text-white text-sm placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/60 transition-all";
 
 const TESTS = [
-  { value: "cbc", label: "Complete Blood Count" },
-  { value: "urinalysis", label: "Urinalysis" },
-  { value: "lipid", label: "Lipid Profile" },
-  { value: "glucose", label: "Glucose Tolerance Test" },
-  { value: "biochemistry", label: "Biochemistry Test" },
+  { value: "trials", label: "Clinical Trials & Device Monitoring" },
+  { value: "qa", label: "Quality Assurance Audit" },
+  { value: "training", label: "Clinical Research Training" },
+  { value: "sitesetup", label: "Research Site Set-Up" },
+  { value: "other", label: "Other / General Inquiry" },
 ];
 
 function CustomSelect({
@@ -93,12 +93,12 @@ export function AppointmentSection() {
           {/* Left: form */}
           <div className="px-6 sm:px-10 lg:px-16 py-12 lg:py-20 flex flex-col justify-center">
             <span className="text-white/70 text-xs font-semibold uppercase tracking-widest mb-2">
-              Book Now
+              Get In Touch
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-6 leading-tight">
-              Are You Ready? Book
+              Ready To Get Started?
               <br />
-              Appointment Now!
+              Contact Us Today!
             </h2>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -132,7 +132,7 @@ export function AppointmentSection() {
                 <CustomSelect
                   value={form.test}
                   onChange={(v) => setForm((f) => ({ ...f, test: v }))}
-                  placeholder="Biochemistry test"
+                  placeholder="Select a service"
                 />
               </div>
 
@@ -150,14 +150,14 @@ export function AppointmentSection() {
                   className="flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-white text-brand-primary font-bold text-sm hover:bg-white/90 transition-colors whitespace-nowrap w-full sm:w-auto"
                 >
                   <Calendar className="w-4 h-4 flex-shrink-0" />
-                  Book an Appointment
+                  Send Inquiry
                 </button>
                 <a
-                  href="tel:+0805332213184"
+                  href="mailto:info@ceonocra.com"
                   className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>Get Your Quote or Call: (080) 5332-213-184</span>
+                  <span>Or email us: info@ceonocra.com</span>
                 </a>
               </div>
             </form>

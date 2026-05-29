@@ -1,65 +1,111 @@
 import { useState } from "react";
-import { ArrowRight, Droplets, TestTube, Activity, Beaker } from "lucide-react";
+import { ArrowRight, Users, GraduationCap, Stethoscope, Briefcase, ClipboardList, Scale } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
-const SERVICES = [
+const TRAINING_PROGRAMS = [
   {
-    id: "cbc",
-    label: "Complete Blood Count",
-    icon: Droplets,
+    id: "participant",
+    label: "Clinical Research & ICH GCP — Study Participant",
+    icon: Users,
     description:
-      "A test that measures the levels of red blood cells, white blood cells and platelets in the blood. It is used to diagnose a wide range of medical conditions and monitor overall health.",
-    details: ["Measures RBC, WBC, Platelets", "Detects anemia & infection", "Results within 24 hours", "No fasting required"],
+      "Designed for lay populations including potential, future, or current study participants. This program demystifies the clinical research process and covers ICH GCP guidelines in an accessible, easy-to-understand format.",
+    details: [
+      "What is clinical research?",
+      "Your rights as a study participant",
+      "ICH GCP fundamentals",
+      "Informed consent process",
+    ],
   },
   {
-    id: "urinalysis",
-    label: "Urinalysis",
-    icon: TestTube,
+    id: "part-a",
+    label: "All About Clinical Research (Part A) & ICH GCP",
+    icon: GraduationCap,
     description:
-      "A urinalysis is used to detect and manage a wide range of disorders, including urinary tract infections, kidney disease, and diabetes. It analyzes the physical, chemical and microscopic aspects of urine.",
-    details: ["Kidney function analysis", "Detects UTIs early", "Quick & non-invasive", "Same-day results"],
+      "The first in a two-part career path series. Part A introduces aspiring clinical research professionals — including college graduates, RNs, BSNs, and MDs — to the foundational principles of clinical research and ICH GCP compliance.",
+    details: [
+      "Introduction to clinical trials",
+      "Regulatory framework overview",
+      "ICH GCP career path curriculum",
+      "Ideal for RNs, BSNs, MDs, PhDs",
+    ],
   },
   {
-    id: "lipid",
-    label: "Lipid Profile",
-    icon: Activity,
+    id: "part-b",
+    label: "All About Clinical Research (Part B) & ICH GCP",
+    icon: Stethoscope,
     description:
-      "A lipid panel measures cholesterol levels including LDL, HDL, total cholesterol and triglycerides, helping assess cardiovascular disease risk and guide treatment decisions.",
-    details: ["LDL & HDL cholesterol", "Triglyceride levels", "Cardiovascular risk assessment", "Fasting required"],
+      "The advanced continuation of the career path series. Part B builds on Part A knowledge with deeper exploration of trial coordination, monitoring roles, and advanced GCP application for experienced and aspiring professionals.",
+    details: [
+      "Advanced trial coordination",
+      "Monitoring and compliance",
+      "Protocol deviation management",
+      "Builds on Part A knowledge",
+    ],
   },
   {
-    id: "glucose",
-    label: "Glucose Tolerance Test",
-    icon: Beaker,
+    id: "cra",
+    label: "All About The Clinical Research Associate",
+    icon: Briefcase,
     description:
-      "The glucose tolerance test measures how well your body metabolizes glucose. It is used to diagnose diabetes and pre-diabetes and is especially recommended during pregnancy.",
-    details: ["Diagnoses Type 1 & 2 diabetes", "Pre-diabetes screening", "Gestational diabetes check", "Multi-hour test"],
+      "A comprehensive program dedicated to the CRA role. Covers site selection, site qualification, site monitoring visits, and close-out procedures — equipping participants with the practical skills needed to excel as a Clinical Research Associate.",
+    details: [
+      "Site selection & qualification",
+      "Monitoring visit procedures",
+      "Source data verification (SDV)",
+      "Site close-out processes",
+    ],
+  },
+  {
+    id: "pm",
+    label: "All About The Clinical Research Project Manager",
+    icon: ClipboardList,
+    description:
+      "Targeted at professionals looking to step into or advance in project management within clinical research. Covers study planning, vendor oversight, timeline management, and cross-functional team leadership in a regulated environment.",
+    details: [
+      "Study planning & budgeting",
+      "Vendor and CRO oversight",
+      "Risk management strategies",
+      "Team leadership in trials",
+    ],
+  },
+  {
+    id: "ethics",
+    label: "All About Ethics in Clinical Research",
+    icon: Scale,
+    description:
+      "An essential program covering the ethical principles that underpin clinical research — from the Belmont Report and Declaration of Helsinki to modern IRB/IEC processes and the protection of human subjects in clinical trials.",
+    details: [
+      "Belmont Report & Declaration of Helsinki",
+      "IRB/IEC review processes",
+      "Informed consent ethics",
+      "Protection of vulnerable populations",
+    ],
   },
 ];
 
 export function ServicesSection() {
-  const [activeId, setActiveId] = useState("cbc");
-  const active = SERVICES.find((s) => s.id === activeId)!;
+  const [activeId, setActiveId] = useState("participant");
+  const active = TRAINING_PROGRAMS.find((s) => s.id === activeId)!;
 
   return (
     <section className="py-16 lg:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold uppercase tracking-widest mb-4">
-            Services
+            Training Programs
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            Our Popular Laboratory
+            Clinical Research
             <br />
-            Test Services.
+            Training Programs
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Tab list */}
           <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-none">
-            {SERVICES.map((s) => (
+            {TRAINING_PROGRAMS.map((s) => (
               <button
                 key={s.id}
                 onClick={() => setActiveId(s.id)}
@@ -71,7 +117,7 @@ export function ServicesSection() {
                 )}
               >
                 <s.icon className="w-4 h-4 flex-shrink-0" />
-                {s.label}
+                <span className="line-clamp-2 leading-snug">{s.label}</span>
               </button>
             ))}
           </div>
@@ -103,7 +149,7 @@ export function ServicesSection() {
                 ))}
               </ul>
               <Button variant="primary" size="md" className="self-start gap-2 mt-2">
-                View More <ArrowRight className="w-4 h-4" />
+                Enroll Now <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
           </div>

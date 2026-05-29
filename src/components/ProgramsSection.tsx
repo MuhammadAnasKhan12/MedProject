@@ -1,23 +1,29 @@
-import { ArrowRight, User, Database, CheckSquare } from "lucide-react";
+import { ArrowRight, Activity, ShieldCheck, BookOpen, Building2 } from "lucide-react";
 
 const PROGRAMS = [
   {
-    icon: User,
-    title: "Pathological Testing",
+    icon: Activity,
+    title: "Clinical Trials & Device Monitoring",
     description:
-      "Pathological testing refers to the examination of tissues, cells, and bodily fluids to diagnose diseases. These techniques aim for an in-depth study of various disease processes.",
+      "Comprehensive clinical trials management and device monitoring services for medical research sites, pharmaceutical companies, and government agencies — ensuring protocol compliance and data integrity throughout the trial lifecycle.",
   },
   {
-    icon: Database,
-    title: "Data and Technology",
+    icon: ShieldCheck,
+    title: "Quality Assurance Audits",
     description:
-      "Healthcare technology solutions have transformed the way healthcare providers and insurance companies work, improving remote system monitoring and digitizing patient care.",
+      "Thorough QA audits designed to evaluate clinical research processes, identify gaps, and ensure your operations align with ICH GCP guidelines, regulatory standards, and sponsor requirements.",
   },
   {
-    icon: CheckSquare,
-    title: "Fully Integrated Testing",
+    icon: BookOpen,
+    title: "Clinical Research Training",
     description:
-      "Fully integrated testing refers to the integration of various diagnostic tests into a single platform, enhancing the ability of healthcare professionals to support real-time patient care.",
+      "Face-to-face classroom and online clinical research training programs customized to fit your company's or site's needs — from GCP fundamentals to advanced career path curricula for RNs, BSNs, PhDs, and MDs.",
+  },
+  {
+    icon: Building2,
+    title: "Research Site Set-Up Services",
+    description:
+      "End-to-end clinical research site set-up support, helping medical practices build the infrastructure, staffing, and regulatory framework needed to successfully initiate and conduct clinical trials.",
   },
 ];
 
@@ -27,15 +33,15 @@ export function ProgramsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center mb-4">
           <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold uppercase tracking-widest">
-            Benefits
+            What We Offer
           </span>
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center text-gray-900 mb-12 lg:mb-16">
-          Our Program &amp; Upcoming Classes
+          Our Core Services
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {PROGRAMS.map(({ icon: Icon, title, description }) => (
             <div
               key={title}

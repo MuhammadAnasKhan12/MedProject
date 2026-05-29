@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(git commit *)",
-      "Bash(git rebase *)"
+      "Bash(git rebase *)",
+      "Bash(Get-ChildItem -Recurse -Force)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)",
+      "Bash(npm run *)",
+      "Bash(npm install *)"
     ]
   }
 }

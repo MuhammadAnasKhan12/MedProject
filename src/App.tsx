@@ -1,34 +1,33 @@
-﻿import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/HeroSection";
-import { WhatWeDoSection } from "@/components/WhatWeDoSection";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { HomePage } from "@/pages/HomePage";
+import { WhoWeArePage } from "@/pages/WhoWeArePage";
+import { ServicesPage } from "@/pages/ServicesPage";
+import { TrainingPage } from "@/pages/TrainingPage";
+import { ResourcesPage } from "@/pages/ResourcesPage";
+import { ContactPage } from "@/pages/ContactPage";
 import "./index.css";
-import { ProgramsSection } from "@/components/ProgramsSection";
-import { ServicesSection } from "@/components/ServicesSection";
-import { ClinicalTrialsSection } from "@/components/ClinicalTrialsSection";
-import { CoreServicesSection } from "@/components/CoreServicesSection";
-import { ExperienceSection } from "@/components/ExperienceSection";
-import { AppointmentSection } from "@/components/AppointmentSection";
-import { PricingSection } from "@/components/PricingSection";
 
 function App() {
   return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
-      <HeroSection />
-      <WhatWeDoSection />
-      <ProgramsSection />
-      <ServicesSection />
-      <ClinicalTrialsSection />
-      <CoreServicesSection />
-      <ExperienceSection />
-      <AppointmentSection />
-      <PricingSection />
-      <Footer />
-    </main>
+    <BrowserRouter>
+      <div className="min-h-screen bg-white flex flex-col">
+        <Navbar />
+        <div className="flex-1">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/who-we-are" element={<WhoWeArePage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/training" element={<TrainingPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-      

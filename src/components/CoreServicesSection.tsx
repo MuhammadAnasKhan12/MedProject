@@ -1,10 +1,11 @@
-import { ArrowRight, CheckCircle2, FlaskConical, Microscope, Activity } from "lucide-react";
+import { ArrowRight, CheckCircle2, Activity, ShieldCheck, BookOpen, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const CORE_SERVICES = [
-  { icon: FlaskConical, label: "Chemical Research" },
-  { icon: Microscope, label: "Advanced Microscopy" },
-  { icon: Activity, label: "Anatomical Pathology" },
+  { icon: Activity, label: "Clinical Trials & Device Monitoring Services" },
+  { icon: ShieldCheck, label: "Quality Assurance Audits" },
+  { icon: BookOpen, label: "Face-to-Face & Online Clinical Research Training" },
+  { icon: Building2, label: "Clinical Research Site Set-Up Services" },
 ];
 
 export function CoreServicesSection() {
@@ -16,10 +17,9 @@ export function CoreServicesSection() {
           <div className="relative rounded-3xl overflow-hidden aspect-[4/3] order-last lg:order-first shadow-xl">
             <img
               src="/images/lab1.jpeg"
-              alt="Scientist working in lab"
+              alt="Clinical research professional at work"
               className="w-full h-full object-cover object-center"
             />
-            {/* Teal tint overlay at bottom */}
             <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-brand-primary/30 to-transparent" />
           </div>
 
@@ -30,7 +30,7 @@ export function CoreServicesSection() {
               Our Core Services
             </h2>
             <p className="text-gray-500 text-base leading-relaxed">
-              We are devoted to designing comprehensive health services tailored to meet the unique needs of our clients — aiming to support and improve human health through cutting-edge diagnostics.
+              With a staff of over 18 years of clinical research experience, our commitment to our customers — regardless of their clinical trials' needs — is to provide them with quality service. Our programs are fully customizable to fit your company's or site's unique requirements.
             </p>
             <ul className="flex flex-col gap-3">
               {CORE_SERVICES.map(({ icon: Icon, label }) => (

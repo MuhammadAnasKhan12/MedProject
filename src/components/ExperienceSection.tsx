@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const STATS = [
-  { value: "24+", label: "Years of Experience", color: "text-brand-primary" },
-  { value: "1,615+", label: "Successful Tests", color: "text-brand-primary" },
-  { value: "2,215+", label: "Customers Satisfied", color: "text-brand-secondary" },
+  { value: "18+", label: "Years of Experience", color: "text-brand-primary" },
+  { value: "500+", label: "Clients Served", color: "text-brand-primary" },
+  { value: "100%", label: "Quality Commitment", color: "text-brand-secondary" },
 ];
 
 export function ExperienceSection() {
@@ -19,12 +19,12 @@ export function ExperienceSection() {
               <span className="text-brand-primary text-xs font-semibold uppercase tracking-widest">Advantages</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-              Over 24 Years
+              Over 18 Years
               <br />
               Of Experience
             </h2>
             <p className="text-gray-500 text-base leading-relaxed">
-              Our team of specialized healthcare professionals has been serving patients with comprehensive care solutions. We are committed to continuing this tradition of excellence for many years ahead.
+              Our team of experienced clinical research professionals has been serving research sites, government agencies, pharmaceutical companies, and study participants with quality consulting and training. We are committed to continuing this tradition of excellence.
             </p>
             <Button variant="primary" size="md" className="self-start">
               Learn More
