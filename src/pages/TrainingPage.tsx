@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Users,
   GraduationCap,
@@ -19,7 +20,7 @@ const PROGRAMS = [
     id: "participant",
     num: "01",
     icon: Users,
-    title: "All About Clinical Research & ICH GCP",
+    title: "All About Clinical Research & ICH GCP / The Study Participant",
     subtitle: "For the Potential Study Participant",
     audience: "Lay population — potential, current, or future study participants",
     description:
@@ -141,6 +142,7 @@ const FORMATS = [
 ];
 
 export function TrainingPage() {
+  const navigate = useNavigate();
   const [activeId, setActiveId] = useState("participant");
   const active = PROGRAMS.find((p) => p.id === activeId)!;
 
@@ -284,7 +286,7 @@ export function TrainingPage() {
                   </div>
                 </div>
 
-                <Button variant="primary" size="md" className="self-start gap-2">
+                <Button variant="primary" size="md" className="self-start gap-2" onClick={() => { navigate("/contact"); window.scrollTo(0, 0); }}>
                   Enroll in This Program <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
@@ -293,43 +295,7 @@ export function TrainingPage() {
         </div>
       </section>
 
-      {/* All Programs Grid */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-              All Six Programs at a Glance
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {PROGRAMS.map(({ icon: Icon, num, title, subtitle, description }) => (
-              <div
-                key={num}
-                className="group flex flex-col gap-5 p-8 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-brand-primary/40 hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center group-hover:bg-brand-primary group-hover:border-brand-primary transition-all duration-300">
-                    <Icon className="w-5 h-5 text-brand-primary group-hover:text-white transition-colors" />
-                  </div>
-                  <span className="text-gray-200 font-black text-3xl leading-none select-none group-hover:text-brand-primary/20 transition-colors">{num}</span>
-                </div>
-                <div>
-                  <p className="text-brand-primary text-xs font-semibold uppercase tracking-wide mb-1">{subtitle}</p>
-                  <h3 className="text-base font-bold text-gray-900 mb-3 leading-snug">{title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">{description}</p>
-                </div>
-                <a
-                  href="#"
-                  onClick={(e) => { e.preventDefault(); setActiveId(PROGRAMS.find(p => p.title === title)?.id || "participant"); window.scrollTo({ top: 600, behavior: "smooth" }); }}
-                  className="flex items-center gap-1.5 text-brand-primary text-sm font-semibold group-hover:gap-2.5 transition-all mt-auto"
-                >
-                  Explore Program <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* CTA */}
       <section className="py-20 bg-brand-primary relative overflow-hidden">
@@ -341,7 +307,7 @@ export function TrainingPage() {
           <p className="text-white/75 text-base leading-relaxed max-w-xl">
             All programs can be tailored to your organization's specific goals, schedule, and delivery format. Contact us to discuss your training needs.
           </p>
-          <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-primary gap-2">
+          <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-primary gap-2" onClick={() => { navigate("/contact"); window.scrollTo(0, 0); }}>
             Request Custom Training <ArrowRight className="w-4 h-4" />
           </Button>
         </div>

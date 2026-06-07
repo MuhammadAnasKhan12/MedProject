@@ -1,29 +1,31 @@
-import { useState } from "react";
 import { MapPin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/Button";
 
 export function Footer() {
-  const [email, setEmail] = useState("");
-
   return (
     <footer className="bg-brand-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Col 1: Logo + CTA */}
           <div className="flex flex-col gap-6">
-            <Logo variant="dark" className="w-44" showSubtitle />
+            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+              <Logo variant="dark" className="w-44" showSubtitle />
+            </Link>
             <h3 className="text-xl font-bold text-white">Have A Question?</h3>
             <p className="text-white/55 text-sm leading-relaxed">
               Ceonocra Health Research Solutions — providing clinical trials management, QA audits, and training support with over 18 years of experience. Contact us for solutions tailored to your needs.
             </p>
-            <Button
-              variant="outline"
-              size="md"
-              className="self-start border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white"
-            >
-              Contact Us
-            </Button>
+            <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+              <Button
+                variant="outline"
+                size="md"
+                className="self-start border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white"
+              >
+                Contact Us
+              </Button>
+            </Link>
           </div>
 
           {/* Col 2: Contact info */}
@@ -57,11 +59,11 @@ export function Footer() {
               <div className="flex flex-col gap-2.5 text-sm">
                 <div className="flex justify-between">
                   <span className="text-white/55">Mon – Fri</span>
-                  <span className="text-white/80 font-medium">9:00 am – 5:00 pm</span>
+                  <span className="text-white/80 font-medium">8:30 am – 5:00 pm</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-white/55">Saturday</span>
-                  <span className="text-white/80 font-medium">9:00 am – 2:00 pm</span>
+                  <span className="text-brand-primary font-medium">Closed</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-white/55">Sunday</span>
@@ -70,21 +72,6 @@ export function Footer() {
               </div>
             </div>
 
-            <div>
-              <h4 className="font-semibold text-white mb-3 text-sm">Email for Newsletter</h4>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/35 focus:outline-none focus:border-brand-primary transition-colors"
-                />
-                <Button variant="primary" size="sm" className="shrink-0">
-                  Send
-                </Button>
-              </div>
-            </div>
           </div>
         </div>
 

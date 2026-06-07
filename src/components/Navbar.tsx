@@ -7,10 +7,12 @@ import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
+  { label: "Home", to: "/" },
   { label: "Who We Are", to: "/who-we-are" },
   { label: "Services", to: "/services" },
   { label: "Training", to: "/training" },
   { label: "Resources", to: "/resources" },
+  { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
 ];
 

@@ -7,7 +7,10 @@
       "Bash(Select-Object -ExpandProperty FullName)",
       "Bash(Sort-Object)",
       "Bash(npm run *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(Get-ChildItem \"d:\\\\osa\\\\ceonocra\\\\public\" -Recurse)",
+      "Bash(Select-Object FullName)",
+      "Bash(npx tsc *)"
     ]
   }
 }

@@ -1,5 +1,4 @@
-import { ArrowRight, BookOpen, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { BookOpen, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const COURSES = [
@@ -89,13 +88,13 @@ export function PricingSection() {
                 ))}
               </ul>
 
-              <Button
+              {/* <Button
                 variant={course.featured ? "outline" : "primary"}
                 size="md"
                 className={cn("w-full mt-auto gap-2", course.featured ? "border-white text-white hover:bg-white hover:text-brand-primary" : "")}
               >
                 Enroll Now <ArrowRight className="w-4 h-4" />
-              </Button>
+              </Button> */}
             </div>
           ))}
         </div>

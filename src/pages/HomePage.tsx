@@ -4,7 +4,6 @@ import { ProgramsSection } from "@/components/ProgramsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ClinicalTrialsSection } from "@/components/ClinicalTrialsSection";
 import { CoreServicesSection } from "@/components/CoreServicesSection";
-import { ExperienceSection } from "@/components/ExperienceSection";
 import { AppointmentSection } from "@/components/AppointmentSection";
 import { PricingSection } from "@/components/PricingSection";
 
@@ -13,11 +12,10 @@ export function HomePage() {
     <>
       <HeroSection />
       <WhatWeDoSection />
-      <ProgramsSection />
       <ServicesSection />
       <ClinicalTrialsSection />
+      <ProgramsSection />
       <CoreServicesSection />
-      <ExperienceSection />
       <AppointmentSection />
       <PricingSection />
     </>

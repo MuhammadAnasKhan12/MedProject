@@ -183,8 +183,8 @@ export function ContactPage() {
                       <p className="text-white/50 text-xs font-medium mb-2">Business Hours</p>
                       <div className="flex flex-col gap-1.5 text-sm">
                         {[
-                          { day: "Mon – Fri", hours: "9:00 am – 5:00 pm" },
-                          { day: "Saturday", hours: "9:00 am – 2:00 pm" },
+                          { day: "Mon – Fri", hours: "8:30 am – 5:00 pm" },
+                          { day: "Saturday", hours: "Closed", closed: true },
                           { day: "Sunday", hours: "Closed", closed: true },
                         ].map(({ day, hours, closed }) => (
                           <div key={day} className="flex justify-between gap-4">

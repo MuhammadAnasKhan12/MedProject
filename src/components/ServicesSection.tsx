@@ -1,22 +1,9 @@
 import { useState } from "react";
-import { ArrowRight, Users, GraduationCap, Stethoscope, Briefcase, ClipboardList, Scale } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Users, GraduationCap, Stethoscope, Briefcase, ClipboardList, Scale } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const TRAINING_PROGRAMS = [
-  {
-    id: "participant",
-    label: "Clinical Research & ICH GCP — Study Participant",
-    icon: Users,
-    description:
-      "Designed for lay populations including potential, future, or current study participants. This program demystifies the clinical research process and covers ICH GCP guidelines in an accessible, easy-to-understand format.",
-    details: [
-      "What is clinical research?",
-      "Your rights as a study participant",
-      "ICH GCP fundamentals",
-      "Informed consent process",
-    ],
-  },
+  
   {
     id: "part-a",
     label: "All About Clinical Research (Part A) & ICH GCP",
@@ -82,10 +69,23 @@ const TRAINING_PROGRAMS = [
       "Protection of vulnerable populations",
     ],
   },
+  {
+    id: "participant",
+    label: "Clinical Research & ICH GCP — The Study Participant",
+    icon: Users,
+    description:
+      "Designed for lay populations including potential, future, or current study participants. This program demystifies the clinical research process and covers ICH GCP guidelines in an accessible, easy-to-understand format.",
+    details: [
+      "What is clinical research?",
+      "Your rights as a study participant",
+      "ICH GCP fundamentals",
+      "Informed consent process",
+    ],
+  },
 ];
 
 export function ServicesSection() {
-  const [activeId, setActiveId] = useState("participant");
+  const [activeId, setActiveId] = useState("part-a");
   const active = TRAINING_PROGRAMS.find((s) => s.id === activeId)!;
 
   return (
@@ -148,9 +148,9 @@ export function ServicesSection() {
                   </li>
                 ))}
               </ul>
-              <Button variant="primary" size="md" className="self-start gap-2 mt-2">
+              {/* <Button variant="primary" size="md" className="self-start gap-2 mt-2">
                 Enroll Now <ArrowRight className="w-4 h-4" />
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>

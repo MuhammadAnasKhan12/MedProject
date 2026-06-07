@@ -1,4 +1,5 @@
-import { Award, Target, Users, ShieldCheck, BookOpen, Activity, Building2, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Award, Target, Users, ShieldCheck, ArrowRight, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 
 const STATS = [
@@ -25,7 +26,7 @@ const VALUES = [
     icon: Users,
     title: "Who We Serve",
     description:
-      "We serve medical and investigator research sites, government agencies, pharmaceutical and biotechnology companies, device companies, and study participants at every stage of the research journey.",
+      "We serve medical and investigator research sites, government agencies, pharmaceutical and biotechnology companies, device companies, and the study participants at every stage of the research journey.",
   },
   {
     icon: Award,
@@ -35,12 +36,6 @@ const VALUES = [
   },
 ];
 
-const SERVICES_OVERVIEW = [
-  { icon: Activity, label: "Clinical Trials & Device Monitoring Services" },
-  { icon: ShieldCheck, label: "Quality Assurance Audits" },
-  { icon: BookOpen, label: "Face-to-Face & Online Clinical Research Training" },
-  { icon: Building2, label: "Clinical Research Site Set-Up Services" },
-];
 
 const HIGHLIGHTS = [
   "18+ years of clinical research experience",
@@ -48,10 +43,11 @@ const HIGHLIGHTS = [
   "Customizable training for any team size or format",
   "Compliant with ICH GCP and FDA regulations",
   "Serving government agencies and research sites",
-  "Study participant education programs",
+  "The study participant education programs",
 ];
 
 export function WhoWeArePage() {
+  const navigate = useNavigate();
   return (
     <main className="min-h-screen bg-white pt-[72px]">
 
@@ -89,13 +85,7 @@ export function WhoWeArePage() {
               <p className="text-white/65 text-lg leading-relaxed max-w-lg">
                 Ceonocra Health Research Solutions is a consulting group with over 18 years of clinical research experience — dedicated to supporting research sites, sponsors, and professionals with the tools and training needed to run quality trials.
               </p>
-              <div className="flex flex-wrap gap-3 mt-2">
-                {["GCP Certified", "18+ Yrs Experience", "Quality Focused", "Customizable Training"].map((badge) => (
-                  <span key={badge} className="px-3 py-1.5 rounded-full bg-white/8 border border-white/15 text-white/70 text-xs font-medium">
-                    {badge}
-                  </span>
-                ))}
-              </div>
+
             </div>
 
             {/* Stats grid */}
@@ -152,7 +142,7 @@ export function WhoWeArePage() {
                 </h2>
               </div>
               <p className="text-gray-600 text-base leading-relaxed">
-                Ceonocra Health Research Solutions is a health research consulting group that provides clinical trials management and training support to medical and investigator research sites, government agencies, pharmaceutical and biotechnology companies, device companies, and potential study participants.
+                Ceonocra Health Research Solutions is a health research consulting group that provides clinical trials management and training support to medical and investigator research sites, government agencies, pharmaceutical and biotechnology companies, device companies, and the study participants at every stage of the research journey.
               </p>
               <p className="text-gray-600 text-base leading-relaxed">
                 We recognize that good clinical research training is one of the keys to a successfully run trial. For this reason, we offer training programs — fully customizable to fit your company's or site's specific needs.
@@ -167,7 +157,7 @@ export function WhoWeArePage() {
                 ))}
               </div>
 
-              <Button variant="primary" size="md" className="self-start gap-2 mt-1">
+              <Button variant="primary" size="md" className="self-start gap-2 mt-1" onClick={() => { navigate("/services"); window.scrollTo(0, 0); }}>
                 View Our Services <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
@@ -203,66 +193,7 @@ export function WhoWeArePage() {
         </div>
       </section>
 
-      {/* Services Overview — dark section */}
-      <section className="py-20 lg:py-28 bg-brand-navy relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(0,176,155,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,176,155,0.5) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-primary/10 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-            <div className="flex flex-col gap-7">
-              <div>
-                <span className="text-brand-primary text-xs font-semibold uppercase tracking-widest block mb-3">What We Do</span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-                  Comprehensive Clinical Research Solutions
-                </h2>
-              </div>
-              <p className="text-white/60 text-base leading-relaxed">
-                From managing complex multi-site clinical trials to equipping your team with GCP-compliant training, Ceonocra provides end-to-end support across the full spectrum of clinical research operations.
-              </p>
-              <ul className="flex flex-col gap-3">
-                {SERVICES_OVERVIEW.map(({ icon: Icon, label }) => (
-                  <li key={label} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand-primary/50 hover:bg-brand-primary/10 transition-all group">
-                    <div className="w-10 h-10 rounded-xl bg-brand-primary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-primary transition-all">
-                      <Icon className="w-5 h-5 text-brand-primary group-hover:text-white transition-colors" />
-                    </div>
-                    <span className="text-white/80 font-medium text-sm group-hover:text-white transition-colors">{label}</span>
-                    <ArrowRight className="w-4 h-4 text-white/30 ml-auto group-hover:text-brand-primary group-hover:translate-x-1 transition-all" />
-                  </li>
-                ))}
-              </ul>
-              <Button variant="primary" size="md" className="self-start gap-2 mt-1">
-                Explore All Services <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
-
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-              <img
-                src="/images/lab3.jpeg"
-                alt="Clinical research team"
-                className="w-full aspect-[4/3] object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-navy/60 to-brand-primary/20" />
-              {/* Stats overlay */}
-              <div className="absolute bottom-6 left-6 right-6 grid grid-cols-2 gap-3">
-                {[{ v: "18+", l: "Years Experience" }, { v: "500+", l: "Clients Served" }].map(({ v, l }) => (
-                  <div key={l} className="flex flex-col items-center text-center bg-black/40 backdrop-blur-sm rounded-xl px-3 py-4 border border-white/10">
-                    <span className="text-2xl font-black text-brand-primary leading-none">{v}</span>
-                    <span className="text-white/70 text-xs mt-1">{l}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-white border-t border-gray-100">
@@ -276,7 +207,7 @@ export function WhoWeArePage() {
           <p className="text-gray-500 text-base leading-relaxed max-w-xl">
             Contact us today — every engagement is tailored to your organization's specific goals, timeline, and budget.
           </p>
-          <Button variant="primary" size="lg" className="gap-2">
+          <Button variant="primary" size="lg" className="gap-2" onClick={() => { navigate("/contact"); window.scrollTo(0, 0); }}>
             Get In Touch <ArrowRight className="w-4 h-4" />
           </Button>
         </div>

@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Activity, ShieldCheck, BookOpen, Building2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 
 const CORE_SERVICES = [
@@ -9,6 +10,7 @@ const CORE_SERVICES = [
 ];
 
 export function CoreServicesSection() {
+  const navigate = useNavigate();
   return (
     <section className="py-16 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +48,7 @@ export function CoreServicesSection() {
                 </li>
               ))}
             </ul>
-            <Button variant="primary" size="md" className="self-start gap-2 mt-2">
+            <Button variant="primary" size="md" className="self-start gap-2 mt-2" onClick={() => { navigate("/services"); window.scrollTo(0, 0); }}>
               View More <ArrowRight className="w-4 h-4" />
             </Button>
           </div>

@@ -1,13 +1,15 @@
 import { FlaskConical, ShieldCheck, BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 
 const HIGHLIGHTS = [
   { icon: FlaskConical, label: "Clinical Trials Management" },
   { icon: ShieldCheck, label: "Quality Assurance" },
-  { icon: BookOpen, label: "Research Training" },
+  { icon: BookOpen, label: "Clinical Research Training" },
 ];
 
 export function WhatWeDoSection() {
+  const navigate = useNavigate();
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,6 +30,7 @@ export function WhatWeDoSection() {
                 variant="outline"
                 size="md"
                 className="self-start border-white text-white hover:bg-white hover:text-brand-primary"
+                onClick={() => { navigate("/who-we-are"); window.scrollTo(0, 0); }}
               >
                 About Us
               </Button>

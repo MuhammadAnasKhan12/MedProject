@@ -1,4 +1,4 @@
-import { ArrowRight, Activity, ShieldCheck, BookOpen, Building2 } from "lucide-react";
+import { Activity, ShieldCheck, BookOpen, Building2 } from "lucide-react";
 
 const PROGRAMS = [
   {
@@ -54,12 +54,6 @@ export function ProgramsSection() {
                 <h3 className="text-lg font-bold text-gray-900 mb-3">{title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
               </div>
-              <a
-                href="#"
-                className="flex items-center gap-1.5 text-brand-primary text-sm font-semibold hover:gap-3 transition-all mt-auto"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           ))}
         </div>

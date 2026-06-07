@@ -185,9 +185,6 @@ export function ServicesPage() {
                     ))}
                   </div>
 
-                  <Button variant="primary" size="md" className="self-start gap-2">
-                    Learn More <ArrowRight className="w-4 h-4" />
-                  </Button>
                 </div>
               </div>
             </div>

@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const STATS = [
@@ -26,9 +25,6 @@ export function ExperienceSection() {
             <p className="text-gray-500 text-base leading-relaxed">
               Our team of experienced clinical research professionals has been serving research sites, government agencies, pharmaceutical companies, and study participants with quality consulting and training. We are committed to continuing this tradition of excellence.
             </p>
-            <Button variant="primary" size="md" className="self-start">
-              Learn More
-            </Button>
           </div>
 
           {/* Right: doctor photo with stat cards overlaid */}

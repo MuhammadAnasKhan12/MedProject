@@ -1,4 +1,5 @@
-import { Calendar, ChevronRight, Play, FlaskConical, Microscope, Activity } from "lucide-react";
+import { Calendar, ChevronRight, Play, FlaskConical } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -8,13 +9,9 @@ const STATS = [
   { value: "100%", label: "Quality Commitment" },
 ];
 
-const TRUST_BADGES = [
-  { icon: FlaskConical, label: "GCP Certified" },
-  { icon: Microscope, label: "Clinical Experts" },
-  { icon: Activity, label: "Quality Assured" },
-];
 
 export function HeroSection() {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Background layers */}
@@ -92,6 +89,7 @@ export function HeroSection() {
                   variant="primary"
                   size="lg"
                   className="group gap-2.5 text-sm font-semibold tracking-wide p-2"
+                  onClick={() => { navigate("/contact"); window.scrollTo(0, 0); }}
                 >
                   <Calendar className="w-4 h-4" />
                   Get In Touch
@@ -104,21 +102,33 @@ export function HeroSection() {
                   </div>
                   <span className="text-sm font-medium">Watch Video</span>
                 </button>
+
               </div>
 
-              <div
-                className="flex flex-wrap gap-4 animate-fade-up"
-                style={{ animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
-              >
-                {TRUST_BADGES.map(({ icon: Icon, label }) => (
+                
                   <div
-                    key={label}
-                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-brand-primary/30 transition-colors"
+                    // key={label}
+                    className="flex items-center"
                   >
-                    <Icon className="w-4 h-4 text-brand-primary" />
-                    <span className="text-white/70 text-xs font-medium">{label}</span>
-                  </div>
-                ))}
+                                  {/* Floating pill — bottom right */}
+              <div
+                className={cn(
+                  " -right-4 bottom-10 xl:-right-10",
+                  "hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl",
+                  "bg-brand-navy/90 border border-brand-primary/30 backdrop-blur-sm shadow-xl"
+                )}
+              >
+                <div className="flex -space-x-1.5">
+                  {["bg-teal-400", "bg-emerald-400", "bg-cyan-400"].map((c, i) => (
+                    <div key={i} className={`w-6 h-6 rounded-full border-2 border-brand-navy ${c}`} />
+                  ))}
+                </div>
+                <div>
+                  <p className="text-white text-xs font-semibold leading-none">Expert Consultants</p>
+                  <p className="text-white/50 text-[10px]">18+ Yrs Experience</p>
+                </div>
+              </div>
+                
               </div>
             </div>
 
@@ -170,24 +180,7 @@ export function HeroSection() {
                 </div>
               </div>
 
-              {/* Floating pill — bottom right */}
-              <div
-                className={cn(
-                  "absolute -right-4 bottom-10 xl:-right-10",
-                  "hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl",
-                  "bg-brand-navy/90 border border-brand-primary/30 backdrop-blur-sm shadow-xl"
-                )}
-              >
-                <div className="flex -space-x-1.5">
-                  {["bg-teal-400", "bg-emerald-400", "bg-cyan-400"].map((c, i) => (
-                    <div key={i} className={`w-6 h-6 rounded-full border-2 border-brand-navy ${c}`} />
-                  ))}
-                </div>
-                <div>
-                  <p className="text-white text-xs font-semibold leading-none">Expert Consultants</p>
-                  <p className="text-white/50 text-[10px]">18+ Yrs Experience</p>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
