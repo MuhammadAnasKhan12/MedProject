@@ -96,12 +96,7 @@ export function HeroSection() {
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Button>
 
-                <button className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
-                  <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-brand-primary/20 group-hover:border-brand-primary/40 transition-all">
-                    <Play className="w-4 h-4 fill-current ml-0.5" />
-                  </div>
-                  <span className="text-sm font-medium">Watch Video</span>
-                </button>
+                
 
               </div>
 

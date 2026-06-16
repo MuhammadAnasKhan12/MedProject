@@ -111,9 +111,7 @@ export function PricingSection() {
             </p>
           </div>
           <a
-            href="https://www.iuniverse.com/en/bookstore/bookdetails/850173-all-about-clinical-research-word-search-and-flash-cards-for-ich-guidelines-for-good-clinical-practice"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/resources"
             className="flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-primary text-white font-semibold text-sm hover:bg-brand-primary/90 transition-colors whitespace-nowrap flex-shrink-0"
           >
             Get The Book <ExternalLink className="w-4 h-4" />

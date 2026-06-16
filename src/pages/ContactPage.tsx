@@ -117,7 +117,7 @@ export function ContactPage() {
               {[
                 { icon: MapPin, label: "Location", value: "PO. Box 4224, Atlanta, GA 30311" },
                 { icon: Mail, label: "Email", value: "info@ceonocra.com" },
-                { icon: Clock, label: "Business Hours", value: "Mon–Fri: 9am–5pm · Sat: 9am–2pm" },
+                { icon: Clock, label: "Business Hours", value: "Mon – Fri: 8:30 am – 5 pm" },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-center gap-4 px-5 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand-primary/40 transition-all">
                   <div className="w-10 h-10 rounded-xl bg-brand-primary/20 flex items-center justify-center flex-shrink-0">

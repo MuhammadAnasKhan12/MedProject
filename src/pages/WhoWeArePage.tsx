@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/Button";
 
 const STATS = [
   { value: "18+", label: "Years of Experience" },
-  { value: "500+", label: "Clients Served" },
   { value: "6", label: "Training Programs" },
   { value: "100%", label: "Quality Commitment" },
 ];
@@ -165,33 +164,7 @@ export function WhoWeArePage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-20 lg:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-semibold uppercase tracking-widest mb-4">
-              Our Values
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
-              What Drives Us
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {VALUES.map(({ icon: Icon, title, description }) => (
-              <div
-                key={title}
-                className="group flex flex-col gap-5 p-8 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-brand-primary/40 hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center group-hover:bg-brand-primary group-hover:border-brand-primary transition-all duration-300">
-                  <Icon className="w-6 h-6 text-brand-primary group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
 
 

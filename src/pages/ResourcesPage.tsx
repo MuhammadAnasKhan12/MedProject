@@ -164,7 +164,7 @@ export function ResourcesPage() {
       </section>
 
       {/* ── Training Programs ── */}
-      <section className="py-20 lg:py-28 bg-gray-50">
+      {/* <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-10">
@@ -208,7 +208,7 @@ export function ResourcesPage() {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
     </main>
   );
