@@ -1,4 +1,4 @@
-import { BookOpen, ExternalLink, ArrowRight, Star, CheckCircle2 } from "lucide-react";
+import { BookOpen, ExternalLink, Star, CheckCircle2 } from "lucide-react";
 
 const BOOK = {
   title: "All About Clinical Research",
@@ -13,16 +13,6 @@ const BOOK = {
     "Self-study for aspiring CRAs and coordinators",
   ],
 };
-
-
-const TRAINING_QUICK = [
-  { num: "01", label: "All About Clinical Research & ICH GCP — Study Participant" },
-  { num: "02", label: "All About Clinical Research (Part A) & ICH GCP — Career Path" },
-  { num: "03", label: "All About Clinical Research (Part B) & ICH GCP — Career Path" },
-  { num: "04", label: "All About The Clinical Research Associate" },
-  { num: "05", label: "All About The Clinical Research Project Manager" },
-  { num: "06", label: "All About Ethics in Clinical Research" },
-];
 
 export function ResourcesPage() {
   return (

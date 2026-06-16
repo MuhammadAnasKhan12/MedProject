@@ -1,4 +1,4 @@
-import { Calendar, ChevronRight, Play, FlaskConical } from "lucide-react";
+import { Calendar, ChevronRight, FlaskConical } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";

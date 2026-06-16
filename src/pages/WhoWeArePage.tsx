@@ -1,4 +1,4 @@
-import { Award, Target, Users, ShieldCheck, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Award, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 
@@ -6,33 +6,6 @@ const STATS = [
   { value: "18+", label: "Years of Experience" },
   { value: "6", label: "Training Programs" },
   { value: "100%", label: "Quality Commitment" },
-];
-
-const VALUES = [
-  {
-    icon: Target,
-    title: "Our Mission",
-    description:
-      "To provide clinical research consulting and training services of the highest quality — empowering research sites, sponsors, and professionals to conduct trials that protect participants and advance medicine.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Our Commitment",
-    description:
-      "Regardless of the scope or complexity of your clinical trials' needs, our commitment is unwavering quality. We hold ourselves to the same ICH GCP standards we teach and audit.",
-  },
-  {
-    icon: Users,
-    title: "Who We Serve",
-    description:
-      "We serve medical and investigator research sites, government agencies, pharmaceutical and biotechnology companies, device companies, and the study participants at every stage of the research journey.",
-  },
-  {
-    icon: Award,
-    title: "Our Expertise",
-    description:
-      "With over 18 years of combined clinical research expertise, our team brings real-world trial management, monitoring, regulatory compliance, and training experience to every engagement.",
-  },
 ];
 
 
