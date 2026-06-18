@@ -1,13 +1,7 @@
-import { Calendar, ChevronRight, FlaskConical } from "lucide-react";
+import { Calendar, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-
-const STATS = [
-  { value: "18+", label: "Years of Experience" },
-  { value: "500+", label: "Clients Served" },
-  { value: "100%", label: "Quality Commitment" },
-];
 
 
 export function HeroSection() {
@@ -146,34 +140,9 @@ export function HeroSection() {
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent" />
 
-                  {/* Stats row at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <div className="grid grid-cols-3 gap-3">
-                      {STATS.map(({ value, label }) => (
-                        <div key={label} className="flex flex-col items-center text-center gap-0.5 bg-black/30 backdrop-blur-sm rounded-xl p-3">
-                          <span className="text-xl font-extrabold text-brand-primary leading-none">{value}</span>
-                          <span className="text-white/60 text-[10px] leading-tight">{label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               </div>
 
-              {/* Floating pill — top left */}
-              <div
-                className={cn(
-                  "absolute -left-4 top-10 xl:-left-10",
-                  "hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl",
-                  "bg-brand-navy/90 border border-brand-primary/30 backdrop-blur-sm shadow-xl"
-                )}
-              >
-                <FlaskConical className="w-4 h-4 text-brand-primary" />
-                <div>
-                  <p className="text-white text-xs font-semibold leading-none">6 Training Programs</p>
-                  <p className="text-white/50 text-[10px]">ICH GCP Certified</p>
-                </div>
-              </div>
 
 
             </div>

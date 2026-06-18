@@ -96,17 +96,7 @@ export function Navbar() {
 
             {/* Desktop Right Actions */}
             <div className="hidden lg:flex items-center gap-3">
-              <button
-                aria-label="Search"
-                className={cn(
-                  "w-9 h-9 flex items-center justify-center rounded-full transition-colors",
-                  dark
-                    ? "text-gray-500 hover:text-gray-900 hover:bg-gray-100"
-                    : "text-white/70 hover:text-white hover:bg-white/10"
-                )}
-              >
-                <Search className="w-4 h-4" />
-              </button>
+              
               <Button
                 variant="primary"
                 size="sm"
